@@ -14,5 +14,5 @@ public class ApiTest {
         ApiTestData testData = new ApiTestData();
         //SendEmail.send("balamutsanzh@yandex.ru", );
         ApiStep.getAhemServiceEmailToken(testData);
-    }//"balamutsanzh@yandex.ru", "balamut_sj@mail.ru", "smtp.yandex.com", "balamutsanzh", "zveri098ugly"sa29nj05ifrit86
+    }
 }
