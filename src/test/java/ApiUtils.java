@@ -1,7 +1,5 @@
 import com.google.gson.Gson;
 
-import java.util.Random;
-
 public class ApiUtils {
     public static Object getPropertyFromResponseBody(Class objectClass, String responseBody) {
         Gson gson = new Gson();
