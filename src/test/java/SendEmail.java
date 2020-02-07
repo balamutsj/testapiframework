@@ -19,7 +19,7 @@ public class SendEmail {
                 new javax.mail.Authenticator() {
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("balamutsanzh", "xbbymgcksydykedv");
+                        return new PasswordAuthentication("balamutsanzh", "");
                     }
                 });
 
