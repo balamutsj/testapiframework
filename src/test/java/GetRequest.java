@@ -54,9 +54,6 @@ public class GetRequest implements HttpRequest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if(response.getStatusLine().getStatusCode() >= 300 ){
-            Assertions.fail(String.valueOf(response.getStatusLine().getStatusCode()) + " " + response.getStatusLine());
-        }
 
         Header[] responseAllHeaders = response.getAllHeaders();
         HashMap responseHeaders = new HashMap();

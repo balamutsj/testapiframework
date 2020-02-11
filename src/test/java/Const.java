@@ -6,6 +6,9 @@ public class Const {
     //==== Urls path =====
     public static String tokenPath = "/api/auth/token";
     public static String systemCheck = "/api/alive";
+    public static String emailList(String emailUserName) {
+        return "/api/mailbox/" + emailUserName + "/email";
+    }
 
 
 }

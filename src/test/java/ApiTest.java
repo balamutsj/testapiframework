@@ -10,9 +10,22 @@ public class ApiTest {
     }
 
     @Test
-    void getAhemEmailToken () throws MessagingException {
+    void getAhemEmailToken () {
         ApiTestData testData = new ApiTestData();
-        //SendEmail.send("balamutsanzh@yandex.ru", );
         ApiStep.getAhemServiceEmailToken(testData);
+    }
+
+    @Test
+    void getDataFromEmail() throws MessagingException, InterruptedException {
+        ApiTestData testData = new ApiTestData();
+        String ahemEmail = ApiUtils.generateRandomString(6);
+        String bodyText = "Body Text: " + ApiUtils.generateRandomString(10);
+        String emailSub = "Email Subject" + ApiUtils.generateRandomString(7);
+        ApiStep.getAhemServiceEmailToken(testData);
+        SendEmail.send("balamutsanzh@yandex.ru", ahemEmail + "@ahem.email",
+                emailSub, bodyText);
+        ApiStep.getAhemEmailList(testData, ahemEmail);
+
+
     }
 }

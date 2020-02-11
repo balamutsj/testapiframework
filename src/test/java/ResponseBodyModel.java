@@ -19,4 +19,18 @@ public class ResponseBodyModel {
             this.token = token;
         }
     }
+
+    public class EmailList {
+        private String emailId;
+        private Sender sender;
+        private String subject;
+        private boolean isRead;
+        private int timestamp;
+    }
+
+    public class Sender {
+        private String address;
+        private Sender name;
+    }
+
 }
