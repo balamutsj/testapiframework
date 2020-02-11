@@ -1,3 +1,5 @@
+package ApiData;
+
 public class Const {
 
     public static String baseUrl = "www.ahem.email";

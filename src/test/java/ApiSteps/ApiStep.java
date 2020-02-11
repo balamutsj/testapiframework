@@ -1,5 +1,11 @@
+package ApiSteps;
+
+import ApiData.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import http.HttpRequest;
+import http.HttpRequestFactory;
+import http.RequestType;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -29,24 +35,19 @@ public class ApiStep {
         HttpRequest httpRequest = requestFactory.sendRequest(RequestType.GET);
         Map<String, String> headers = ApiHeader.defaultHeader();
         headers.put("Authorization", "Bearer " + testData.getToken());
-        /*headers.put("Some-token", "7edb7c92-d3cc-446f-a2c5-33f970736e4b");
-        headers.put("cache-control", "no-cache");
-        headers.put("User-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36 ");
-        headers.put("Host", "www.ahem.email");
-        headers.put("accept-encoding", "gzip, deflate");
-        headers.put("cookie", "__cfduid=de9b347b426e3ea6e542a06490c5318ce1581343278");*/
         for(int i = 0; i < 10; i++) {
             httpRequest.request(testData, "https", Const.baseUrl, Const.emailList(emailUserName), headers, null, null);
             System.out.println(Const.baseUrl + Const.emailList(emailUserName));
             if(testData.getStatusCode() <305) break;
             Thread.sleep(2000);
         }
-        System.out.println(Const.baseUrl + Const.emailList(emailUserName) +
-                headers);
         String responseBody = testData.getResponseBody();
         Gson gson = new Gson();
         Type founderListType = new TypeToken<ArrayList<ResponseBodyModel.EmailList>>(){}.getType();
         List<ResponseBodyModel.EmailList> emailList = gson.fromJson(responseBody, founderListType);
+        testData.setEmailId(emailList.get(0).getEmailId());
+        testData.setEmailSubject(emailList.get(0).getSubject());
+        testData.setEmailStatusIsRead(emailList.get(0).isRead());
     }
 
 }

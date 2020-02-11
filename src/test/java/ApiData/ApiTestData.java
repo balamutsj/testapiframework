@@ -1,3 +1,5 @@
+package ApiData;
+
 import java.util.HashMap;
 
 public class ApiTestData {
@@ -6,6 +8,33 @@ public class ApiTestData {
     private String responseBody;
     private String token;
     private int statusCode;
+    private String emailSubject;
+    private boolean emailStatusIsRead;
+    private String emailId;
+
+    public String getEmailSubject() {
+        return emailSubject;
+    }
+
+    public void setEmailSubject(String emailSubject) {
+        this.emailSubject = emailSubject;
+    }
+
+    public boolean isEmailStatusIsRead() {
+        return emailStatusIsRead;
+    }
+
+    public void setEmailStatusIsRead(boolean emailStatusIsRead) {
+        this.emailStatusIsRead = emailStatusIsRead;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
 
     public String getBody() {
         return body;

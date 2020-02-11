@@ -1,3 +1,5 @@
+package http;
+
 public class HttpRequestFactory {
     public HttpRequest sendRequest(RequestType requestType){
         HttpRequest httpRequest = null;
@@ -9,6 +11,7 @@ public class HttpRequestFactory {
                 httpRequest = new GetRequest();
                 break;
             case PUT:
+                httpRequest = new PutRequest();
                 break;
             case DELETE:
                 break;

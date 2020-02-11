@@ -1,3 +1,5 @@
+package ApiData;
+
 import com.google.gson.Gson;
 
 public class ApiUtils {

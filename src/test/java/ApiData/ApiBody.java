@@ -1,3 +1,4 @@
+package ApiData;
 
 public class ApiBody {
 
