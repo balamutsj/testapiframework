@@ -1,6 +1,7 @@
 package ApiData;
 
 public class ResponseBodyModel {
+
     public class TokenData {
         private boolean success;
         private String token;

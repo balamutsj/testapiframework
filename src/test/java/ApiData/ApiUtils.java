@@ -1,6 +1,7 @@
 package ApiData;
 
 import com.google.gson.Gson;
+import org.apache.commons.lang3.RandomStringUtils;
 
 public class ApiUtils {
     public static Object getPropertyFromResponseBody(Class objectClass, String responseBody) {
@@ -9,13 +10,8 @@ public class ApiUtils {
     }
 
     public static String generateRandomString(int count) {
-        String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        StringBuilder builder = new StringBuilder();
-        while (count-- != 0) {
-            int character = (int)(Math.random()*ALPHA_NUMERIC_STRING.length());
-            builder.append(ALPHA_NUMERIC_STRING.charAt(character));
-        }
-        return builder.toString();
+        return RandomStringUtils.randomAlphanumeric(count);
     }
+
 
 }
