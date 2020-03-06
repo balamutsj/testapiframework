@@ -2,11 +2,12 @@ package ApiSteps;
 
 import javax.mail.*;
 import javax.mail.internet.*;
+import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
 public class SendEmail {
 
-    public static void send(String from, String to, String emailSubject, String emailBodyText) throws MessagingException {
+    public static void send(String from, String to, String emailSubject, String emailBodyText) throws MessagingException, UnsupportedEncodingException {
         Properties props = new Properties();
         props.put("mail.smtp.host", "smtp.yandex.ru");
         props.put("mail.smtp.auth", "true");
@@ -24,7 +25,7 @@ public class SendEmail {
                 });
 
         Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(from));
+        message.setFrom(new InternetAddress(from, "no-reply"));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
         message.setSubject(emailSubject);
         message.setText(emailBodyText);

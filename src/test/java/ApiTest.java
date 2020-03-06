@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import javax.mail.MessagingException;
+import java.io.UnsupportedEncodingException;
 
 public class ApiTest {
     @Test
@@ -24,9 +25,9 @@ public class ApiTest {
     }
 
     @Test
-    void getDataFromEmail() throws MessagingException, InterruptedException {
+    void getDataFromEmail() throws MessagingException, InterruptedException, UnsupportedEncodingException {
         ApiTestData testData = new ApiTestData();
-        String ahemEmail = ApiUtils.generateRandomString(6);
+        String ahemEmail = ApiUtils.generateRandomString(6).toLowerCase();
         String bodyText = "Body Text: " + ApiUtils.generateRandomString(10);
         String emailSub = "Email Subject" + ApiUtils.generateRandomString(7);
         ApiStep.getAhemServiceEmailToken(testData);

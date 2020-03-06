@@ -1,5 +1,8 @@
 package ApiData;
 
+import java.lang.reflect.Type;
+import java.util.List;
+
 public class ResponseBodyModel {
 
     public class TokenData {
@@ -28,7 +31,7 @@ public class ResponseBodyModel {
         private Sender sender;
         private String subject;
         private boolean isRead;
-        private int timestamp;
+        private long timestamp;
 
         public String getEmailId() {
             return emailId;
@@ -62,18 +65,18 @@ public class ResponseBodyModel {
             isRead = read;
         }
 
-        public int getTimestamp() {
+        public long getTimestamp() {
             return timestamp;
         }
 
-        public void setTimestamp(int timestamp) {
+        public void setTimestamp(long timestamp) {
             this.timestamp = timestamp;
         }
     }
 
     public class Sender {
         private String address;
-        private Sender name;
+        private String name;
 
         public String getAddress() {
             return address;
@@ -83,11 +86,11 @@ public class ResponseBodyModel {
             this.address = address;
         }
 
-        public Sender getName() {
+        public String getName() {
             return name;
         }
 
-        public void setName(Sender name) {
+        public void setName(String name) {
             this.name = name;
         }
     }
